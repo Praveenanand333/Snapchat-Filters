@@ -4,7 +4,7 @@ def apply_filter(frame):
     # Convert frame to grayscale
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     return gray
-def filter():
+def apply_bw():
     cap = cv2.VideoCapture(0)
 
     while True:
@@ -26,7 +26,7 @@ def filter():
     # Release the camera and destroy windows
     cap.release()
     cv2.destroyAllWindows()
-filter()
+apply_bw()
 
 
 

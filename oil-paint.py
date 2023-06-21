@@ -7,7 +7,7 @@ def apply_filter(frame):
 
     return oil_painted_frame
 
-def filter():
+def apply_oilpaint():
     cap = cv2.VideoCapture(0)
 
     while True:
@@ -29,4 +29,4 @@ def filter():
     cap.release()
     cv2.destroyAllWindows()
 
-filter()
+apply_oilpaint()

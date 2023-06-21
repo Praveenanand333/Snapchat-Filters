@@ -6,7 +6,7 @@ def apply_filter(frame):
     blurred_frame = cv2.GaussianBlur(frame, (15, 15), 0)
     return blurred_frame
 
-def filter():
+def apply_blur():
     cap = cv2.VideoCapture(0)
 
     while True:
@@ -28,4 +28,4 @@ def filter():
     cap.release()
     cv2.destroyAllWindows()
 
-filter()
+apply_blur()
