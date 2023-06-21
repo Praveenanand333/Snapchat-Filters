@@ -39,9 +39,9 @@ Make sure you have Python 3.x and pip installed on your system.
 python main.py
 ```
 
-4. Select an image to apply the filters to. The application will detect faces in the image and overlay the chosen filters onto the faces.
+4. Select an filter to apply the filters to. The application will detect faces in the image and overlay the chosen filters onto the faces.
 
-5. View the output image with the applied filters.
+5. You can also capture and save images
 
 ## Customization
 
