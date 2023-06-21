@@ -102,36 +102,37 @@ def overlay(image, filter_img, face_landmarks, face_part, INDEXES, display=True)
         return annotated_image
         
 
+def apply_mustache():
+    camera_video = cv2.VideoCapture(0)
+    camera_video.set(3,1280)
+    camera_video.set(4,960)
+    cv2.namedWindow('Mustache Filter', cv2.WINDOW_NORMAL)
+    mustache=cv2.imread('media\mustache1.png')
 
-camera_video = cv2.VideoCapture(0)
-camera_video.set(3,1280)
-camera_video.set(4,960)
-cv2.namedWindow('Mustache Filter', cv2.WINDOW_NORMAL)
-mustache=cv2.imread('media\mustache1.png')
 
+    while camera_video.isOpened():
 
-while camera_video.isOpened():
-
-    ok, frame = camera_video.read()
-    if not ok:
-        continue
-    #frame=cv2.imread('media\sample.jpg')
-    frame = cv2.flip(frame, 1)
-    _, face_mesh_results = detectFacialLandmarks(frame, face_mesh_videos, display=False)
-    if face_mesh_results.multi_face_landmarks:
-        
-        
-        for face_num, face_landmarks in enumerate(face_mesh_results.multi_face_landmarks):
+        ok, frame = camera_video.read()
+        if not ok:
+            continue
+        #frame=cv2.imread('media\sample.jpg')
+        frame = cv2.flip(frame, 1)
+        _, face_mesh_results = detectFacialLandmarks(frame, face_mesh_videos, display=False)
+        if face_mesh_results.multi_face_landmarks:
             
             
-            frame = overlay(frame, mustache, face_landmarks,
-                                'MOUTH', mp_face_mesh.FACEMESH_LIPS, display=False)
-    cv2.imshow('Moustache Filter', frame)
-    #cv2.waitKey(0)  # Wait for any key press
-    #cv2.destroyAllWindows()
-    k = cv2.waitKey(1) & 0xFF    
-    if(k == 97):
-        break
-                 
-camera_video.release()
-cv2.destroyAllWindows()
+            for face_num, face_landmarks in enumerate(face_mesh_results.multi_face_landmarks):
+                
+                
+                frame = overlay(frame, mustache, face_landmarks,
+                                    'MOUTH', mp_face_mesh.FACEMESH_LIPS, display=False)
+        cv2.imshow('Moustache Filter', frame)
+        #cv2.waitKey(0)  # Wait for any key press
+        #cv2.destroyAllWindows()
+        k = cv2.waitKey(1) & 0xFF    
+        if(k == 97):
+            break
+                    
+    camera_video.release()
+    cv2.destroyAllWindows()
+apply_mustache()

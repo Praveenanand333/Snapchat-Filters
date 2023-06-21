@@ -92,42 +92,43 @@ def overlay(image, filter_img, face_landmarks, face_part, INDEXES, display=True)
 
 
 
-
-camera_video = cv2.VideoCapture(0)
-camera_video.set(3,1280)
-camera_video.set(4,960)
-
-
-cv2.namedWindow('Face Filter', cv2.WINDOW_NORMAL)
-
-glasses = cv2.imread('media/glasses3.png')
+def apply_glass():
+    camera_video = cv2.VideoCapture(0)
+    camera_video.set(3,1280)
+    camera_video.set(4,960)
 
 
-while camera_video.isOpened():
-    
-    ok, frame = camera_video.read()
-    
-    if not ok:
-        continue
-       
-    frame = cv2.flip(frame, 1)
+    cv2.namedWindow('Face Filter', cv2.WINDOW_NORMAL)
 
-    _, face_mesh_results = detectFacialLandmarks(frame, face_mesh_videos, display=False)
-    
-    if face_mesh_results.multi_face_landmarks:
+    glasses = cv2.imread('media/glasses3.png')
 
-        for face_num, face_landmarks in enumerate(face_mesh_results.multi_face_landmarks):
 
+    while camera_video.isOpened():
+        
+        ok, frame = camera_video.read()
+        
+        if not ok:
+            continue
+        
+        frame = cv2.flip(frame, 1)
+
+        _, face_mesh_results = detectFacialLandmarks(frame, face_mesh_videos, display=False)
+        
+        if face_mesh_results.multi_face_landmarks:
+
+            for face_num, face_landmarks in enumerate(face_mesh_results.multi_face_landmarks):
+
+                    
+                    frame = overlay(frame, glasses, face_landmarks,
+                                    'LEFT EYE', mp_face_mesh.FACEMESH_LEFT_EYE, display=False)
                 
-                frame = overlay(frame, glasses, face_landmarks,
-                                'LEFT EYE', mp_face_mesh.FACEMESH_LEFT_EYE, display=False)
             
-          
-    
-    cv2.imshow('Face Filter', frame)
-    k = cv2.waitKey(1) & 0xFF    
-    if(k == 97):
-        break
-                 
-camera_video.release()
-cv2.destroyAllWindows()
+        
+        cv2.imshow('Face Filter', frame)
+        k = cv2.waitKey(1) & 0xFF    
+        if(k == 97):
+            break
+                    
+    camera_video.release()
+    cv2.destroyAllWindows()
+apply_glass()
