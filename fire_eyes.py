@@ -331,7 +331,7 @@ def apply_fire_eyes():
 
         k = cv2.waitKey(1) & 0xFF    
         
-        if(k == 97):
+        if(k == 113):
             break
                     
     camera_video.release()

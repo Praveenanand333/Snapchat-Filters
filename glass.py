@@ -63,7 +63,7 @@ def overlay(image, filter_img, face_landmarks, face_part, INDEXES, display=True)
     try:
         filter_img_height, filter_img_width, _  = filter_img.shape
         _, face_part_height, landmarks = getSize(image, face_landmarks, INDEXES)
-        required_height = int(face_part_height*12)
+        required_height = int(face_part_height*13)
         resized_filter_img = cv2.resize(filter_img, (int(filter_img_width*
                                                          (required_height/filter_img_height)),
                                                      required_height))
@@ -126,7 +126,7 @@ def apply_glass():
         
         cv2.imshow('Face Filter', frame)
         k = cv2.waitKey(1) & 0xFF    
-        if(k == 97):
+        if(k == 113):
             break
                     
     camera_video.release()

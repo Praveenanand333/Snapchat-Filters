@@ -130,7 +130,7 @@ def apply_mustache():
         #cv2.waitKey(0)  # Wait for any key press
         #cv2.destroyAllWindows()
         k = cv2.waitKey(1) & 0xFF    
-        if(k == 97):
+        if(k == 113):
             break
                     
     camera_video.release()
