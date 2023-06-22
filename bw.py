@@ -1,5 +1,7 @@
 import tkinter as tk
 import cv2
+import datetime
+
 def apply_filter(frame):
     # Convert frame to grayscale
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
