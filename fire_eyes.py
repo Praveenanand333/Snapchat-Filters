@@ -344,4 +344,3 @@ def apply_fire_eyes():
                     
     camera_video.release()
     cv2.destroyAllWindows()
-apply_fire_eyes()

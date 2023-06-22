@@ -145,4 +145,3 @@ def apply_mustache():
                     
     camera_video.release()
     cv2.destroyAllWindows()
-apply_mustache()

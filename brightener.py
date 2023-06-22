@@ -59,7 +59,7 @@ def apply_brighten():
     # Release the camera and destroy windows
     cap.release()
     cv2.destroyAllWindows()
-apply_brighten()
+
 
 
 

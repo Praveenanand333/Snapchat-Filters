@@ -132,4 +132,3 @@ def apply_dogfilter():
 
     camera_video.release()
     cv2.destroyAllWindows()
-apply_dogfilter()

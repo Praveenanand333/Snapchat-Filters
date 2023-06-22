@@ -37,4 +37,4 @@ def apply_blur():
     cap.release()
     cv2.destroyAllWindows()
 
-apply_blur()
+

@@ -140,4 +140,3 @@ def apply_glass():
                     
     camera_video.release()
     cv2.destroyAllWindows()
-apply_glass()

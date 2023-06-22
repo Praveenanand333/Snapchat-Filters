@@ -38,4 +38,4 @@ def apply_oilpaint():
     cap.release()
     cv2.destroyAllWindows()
 
-apply_oilpaint()
+
