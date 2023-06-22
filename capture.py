@@ -6,8 +6,7 @@ def capture_image():
     # Open the camera
     cap = cv2.VideoCapture(0)
 
-    # Counter for naming captured images
-    counter = 1
+    
 
     while True:
         # Read the current frame from the camera
@@ -20,14 +19,13 @@ def capture_image():
         if cv2.waitKey(1) & 0xFF == ord('c'):
             # Generate a unique filename based on the current timestamp
             timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-            filename = f"captured_image_{timestamp}_{counter}.jpg"
+            filename = f"captured_image_{timestamp}.jpg"
 
             # Save the frame as an image
             cv2.imwrite(filename, frame)
             print(f"Image captured and saved as {filename}")
 
-            # Increment the counter
-            counter += 1
+            
 
         # Check if the 'q' key is pressed
         if cv2.waitKey(1) & 0xFF == ord('q'):
