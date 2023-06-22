@@ -126,6 +126,14 @@ def apply_glass():
             
         
         cv2.imshow('Face Filter', frame)
+        if cv2.waitKey(1) & 0xFF == ord('c'):
+            # Generate a unique filename based on the current timestamp
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"captured_image_{timestamp}.jpg"
+
+            # Save the frame as an image
+            cv2.imwrite(filename, frame)
+            print(f"Image captured and saved as {filename}")
         k = cv2.waitKey(1) & 0xFF    
         if(k == 113):
             break

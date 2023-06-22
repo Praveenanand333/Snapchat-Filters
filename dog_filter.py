@@ -118,6 +118,14 @@ def apply_dogfilter():
                 frame = overlay(frame, dog_face, face_landmarks,
                                 'FACE', mp_face_mesh.FACEMESH_FACE_OVAL, display=False)
         cv2.imshow('Dog Face Filter', frame)
+        if cv2.waitKey(1) & 0xFF == ord('c'):
+            # Generate a unique filename based on the current timestamp
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"captured_image_{timestamp}.jpg"
+
+            # Save the frame as an image
+            cv2.imwrite(filename, frame)
+            print(f"Image captured and saved as {filename}")
         k = cv2.waitKey(1) & 0xFF
         if k == 113:  # Press 'q' to exit
             break

@@ -21,6 +21,14 @@ def apply_blur():
             # Display the filtered frame
             cv2.imshow('Filtered Feed', filtered_frame)
 
+        if cv2.waitKey(1) & 0xFF == ord('c'):
+            # Generate a unique filename based on the current timestamp
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"captured_image_{timestamp}.jpg"
+
+            # Save the frame as an image
+            cv2.imwrite(filename, frame)
+            print(f"Image captured and saved as {filename}")
         # Check for 'q' key press to exit
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
