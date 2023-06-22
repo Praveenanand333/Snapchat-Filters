@@ -26,3 +26,37 @@ import blur as bl
 #bl.apply_blur()
 
 
+
+root = tk.Tk()
+root.title("SNAPCHAT_FILTERS")
+
+# Create buttons
+button1 = tk.Button(root, text="GLASSES", command=g.apply_glass)
+button1.pack()
+
+button2 = tk.Button(root, text="MUSTACHE", command=m.apply_mustache)
+button2.pack()
+
+button3 = tk.Button(root, text="OIL_PAINT", command=o.apply_oilpaint)
+button3.pack()
+
+button4 = tk.Button(root, text="DOG_FILTER", command=d.apply_dogfilter)
+button4.pack()
+
+button5 = tk.Button(root, text="FIRE_EYES", command=f.apply_fire_eyes)
+button5.pack()
+
+button6 = tk.Button(root, text="BRIGHTNER", command=b.apply_brighten)
+button6.pack()
+
+button7 = tk.Button(root, text="BW", command=bw.apply_bw)
+button7.pack()
+
+button8 = tk.Button(root, text="BLUR", command=bl.apply_blur)
+button8.pack()
+
+# Start the main event loop
+root.mainloop()
+
+
+
